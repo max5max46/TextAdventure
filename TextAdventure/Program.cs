@@ -37,10 +37,20 @@ namespace TextAdventure
                 optionSelected = 1;
 
                 //Menu Before Main Loop
-                Console.WriteLine("\n Main Menu");
-                Console.WriteLine(" Title: " + storyArray[0]);
-                Console.WriteLine("\n Press Any button to move forward");
+                Console.WriteLine("\n ┌──────────────────────────────────────────────────────────────────────────────────────────────────────┐");
+                Console.WriteLine(" │ ██████ █████ ██   ██ ██████       ████   ████    ██    ██ █████ ████  ██ ██████ ██   ██ █████  █████ │");
+                Console.WriteLine(" │   ██   ██     ██ ██    ██        ██  ██  ██  ██  ██    ██ ██    ██ ██ ██   ██   ██   ██ ██  ██ ██    │");
+                Console.WriteLine(" │   ▓▓   ▓▓▓▓    ▓▓▓     ▓▓        ▓▓▓▓▓▓  ▓▓   ▓▓  ▓▓  ▓▓  ▓▓▓▓  ▓▓ ▓▓ ▓▓   ▓▓   ▓▓   ▓▓ ▓▓▓▓▓  ▓▓▓▓  │");
+                Console.WriteLine(" │   ▒▒   ▒▒     ▒▒ ▒▒    ▒▒       ▒▒    ▒▒ ▒▒  ▒▒   ▒▒  ▒▒  ▒▒    ▒▒ ▒▒ ▒▒   ▒▒   ▒▒   ▒▒ ▒▒  ▒▒ ▒▒    │");
+                Console.WriteLine(" │   ░░   ░░░░░ ░░   ░░   ░░       ░░    ░░ ░░░░░     ░░░░   ░░░░░ ░░  ░░░░   ░░    ░░░░░  ░░  ░░ ░░░░░ │");
+                Console.WriteLine(" └──────────────────────────────────────────────────────────────────────────────────────────────────────┘");
+                Console.WriteLine("\n  Made By: Dylan Adams");
+                Console.Write("\n  Current Story Loaded: ");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write(storyArray[0]);
+                Console.ResetColor();
 
+                Console.WriteLine("\n\n  Press any Button to Continue");
 
                 //if player hits Escape key closes Game
                 ConsoleKeyInfo keyInfo;
@@ -70,6 +80,7 @@ namespace TextAdventure
                         {
                             gameLoop = false;
                             controlLoop = false;
+                            Console.WriteLine("\n\n Hit any button to Reset or Hit Escape to Quit");
                         }
 
                         //Call to write Options for current page
@@ -98,15 +109,15 @@ namespace TextAdventure
                 Console.Write(storyArray[((currentPage - 1) * 5) + 1][i]);
 
                 //Text Wraping By finding nearest Space
-                if (textWrap > 80 && storyArray[((currentPage - 1) * 5) + 1][i] == ' ')
+                if (textWrap > 65 && storyArray[((currentPage - 1) * 5) + 1][i] == ' ')
                 {
                     Console.Write("\n ");
                     textWrap = 0;
                     linesDown++;
                 }
 
-                //Backup Text Wraping - In case of no spaces present within 20 characters past 80 force warp
-                if (textWrap > 100)
+                //Backup Text Wraping - In case of no spaces present within 20 characters past 65 force warp
+                if (textWrap > 85)
                 {
                     Console.Write("\n ");
                     textWrap = 0;
@@ -147,18 +158,7 @@ namespace TextAdventure
                 }
                 Console.Write(storyArray[((currentPage - 1) * 5) + 3]);
                 Console.ResetColor();
-
-                //Display Page Num
-                Console.SetCursorPosition(1, linesDown + 3);
-                Console.WriteLine("Page: " + currentPage);
             }
-            else
-            {
-                Console.SetCursorPosition(1, linesDown);
-                Console.WriteLine("Page: " + currentPage);
-            }
-            
-
         }
 
         //Allows the player to choose Options and quit game
