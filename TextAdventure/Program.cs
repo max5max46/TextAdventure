@@ -80,7 +80,7 @@ namespace TextAdventure
                         {
                             gameLoop = false;
                             controlLoop = false;
-                            Console.WriteLine("\n\n Hit any button to Reset or Hit Escape to Quit");
+                            Console.WriteLine("\n Hit any button to Reset or Hit Escape to Quit");
                         }
 
                         //Call to write Options for current page
