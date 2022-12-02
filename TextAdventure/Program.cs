@@ -32,25 +32,6 @@ namespace TextAdventure
             while (gameResetLoop == true)
             {
                 story = File.ReadAllText("story.txt");
-                if (File.Exists("save.txt"))
-                {
-                    File.Delete("save.txt");
-                }
-                File.Create("save.txt");
-                Console.ReadKey(true);
-                File.WriteAllText("save.txt","1");
-
-                for (int i = 0; i < story.Length; i++)
-                {
-                    if (story[i] == '\n')
-                    {
-                        Console.WriteLine("Hit");
-                        story = story.Remove(i,1);
-                    }
-                }
-
-                Console.WriteLine(story);
-                Console.ReadKey(true);
 
                 storyPages = story.Split('%');
 
@@ -105,7 +86,7 @@ namespace TextAdventure
                         {
                             gameLoop = false;
                             controlLoop = false;
-                            Console.WriteLine("\n Hit any button to Reset or Hit Escape to Quit");
+                            Console.WriteLine("\n\n Hit any button to Reset or Hit Escape to Quit");
 
                             keyInfo = Console.ReadKey(true);
 
@@ -178,24 +159,26 @@ namespace TextAdventure
             {
                 //Display Option 1
                 Console.SetCursorPosition(1, linesDown);
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write(">");
 
                 if (optionSelected == 1)
                 {
                     Console.ForegroundColor = ConsoleColor.Black;
-                    Console.BackgroundColor = ConsoleColor.Gray;
+                    Console.BackgroundColor = ConsoleColor.Yellow;
                 }
                 Console.Write(storyPages[currentPage].Split(';')[1]);
                 Console.ResetColor();
 
                 //Display Option 2
                 Console.SetCursorPosition(1, linesDown + 1);
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write(">");
 
                 if (optionSelected == 2)
                 {
                     Console.ForegroundColor = ConsoleColor.Black;
-                    Console.BackgroundColor = ConsoleColor.Gray;
+                    Console.BackgroundColor = ConsoleColor.Yellow;
                 }
                 Console.Write(storyPages[currentPage].Split(';')[2]);
                 Console.ResetColor();
