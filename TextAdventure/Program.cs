@@ -28,14 +28,18 @@ namespace TextAdventure
         {
             Console.CursorVisible = false;
 
+            //Plays Music Track
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+            player.SoundLocation = "RetroForest.wav";
+            player.PlayLooping();
+
             //Reseted Runs start here - Will keep the player in the Game for as long as they want
             while (gameResetLoop == true)
             {
+                //variable Setup for gameLoop
                 story = File.ReadAllText("story.txt");
-
                 storyPages = story.Split('%');
 
-                //variable Setup for gameLoop
                 gameLoop = true;
                 controlLoop = true;
                 currentPage = 1;
@@ -67,8 +71,6 @@ namespace TextAdventure
                     controlLoop = false;
                     gameResetLoop = false;
                 }
-
-
 
                 Console.Clear();
 
@@ -106,9 +108,6 @@ namespace TextAdventure
                             //Call to get player input
                             PlayerControl();
                         }
-
-                        
-
                     }
                     controlLoop = true;
                     Console.Clear();
