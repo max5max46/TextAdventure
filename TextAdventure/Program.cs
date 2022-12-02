@@ -32,7 +32,13 @@ namespace TextAdventure
             while (gameResetLoop == true)
             {
                 story = File.ReadAllText("story.txt");
-
+                if (File.Exists("save.txt"))
+                {
+                    File.Delete("save.txt");
+                }
+                File.Create("save.txt");
+                Console.ReadKey(true);
+                File.WriteAllText("save.txt","1");
 
                 for (int i = 0; i < story.Length; i++)
                 {
